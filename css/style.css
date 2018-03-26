@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+body {
+  height: 100vh;
+}
+.logo h5 {
+  margin: -1rem 0 0 0;
+  font-size: 1.5rem;
+  font-family: 'Amatic SC', cursive;
+}
+.logo p {
+  font-size: 0.4rem;
+}
+#city {
+  margin: 2rem 0 0.3rem 0;
+}
+#content {
+  height: 100%;
+}
+#temperature span {
+  cursor: pointer;
+}
+#min, #max {
+  border: 2px solid #aaa;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px #333;
+}
+#description{
+  margin: -1rem 0 2rem 0;
+}
+.btn-floating {
+  left: -2rem;
+  top: 5rem;
+}
+
+.cast {
+  justify-content: center;
+}
+.card {
+  height: 100%;
+  width: 100%;
+  background: url('https://images.pexels.com/photos/186980/pexels-photo-186980.jpeg?w=940&h=650&auto=compress&cs=tinysrgb');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.card-content {
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+@media screen and (min-width: 750px) {
+  .container{
+    height: 98vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .btn-floating {
+
+    bottom: -2rem;
+  }
+  .logo svg{
+    width: 100px;
+    height: auto;
+  }
+  .logo h5 {
+    font-size: 2.4rem;
+  }
+  .logo p {
+    font-size: 0.6rem;
+  }
+}
+@media screen and (max-height: 400px){
+  #description {
+    display: none;
+  }
+}
+@media screen and (max-height: 300px){
+  .btn-floating, #min, #max {
+    display: none;
+  }
+}
+@media screen and (max-height: 200px){
+   .logo {
+    display: none;
+  }
+  .card-content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+  }
+  #city{
+    margin: 0;
+  }
+}
