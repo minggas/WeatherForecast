@@ -1,98 +1,157 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
-body {
-  height: 100vh;
+/*Reseting*/
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-.logo h5 {
-  margin: -1rem 0 0 0;
-  font-size: 1.5rem;
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }
+  *{
+  margin:0;
+  padding:0;
   font-family: 'Amatic SC', cursive;
 }
-.logo p {
-  font-size: 0.4rem;
+body {
+  width: 100vw;
+  height: 100vh;
 }
-#city {
-  margin: 2rem 0 0.3rem 0;
+
+.container{
+  background: url('../bg.jpg') center center no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 7fr 1fr;
+  grid-template-rows: 1fr 7fr 1fr;
+  grid-template-areas: ". . ."
+                       ". card ."
+                       ". . .";
 }
-#content {
+.card{
+  grid-area: card;
+  border-radius: 30px;
+  background: url('../bg.jpg') center center no-repeat;
+  background-size: cover;
+  box-shadow: 10px 10px 150px #000;
+  display: grid;
+}
+.card .bg{
+  border-radius: 30px;
+  width: 100%;
   height: 100%;
+  background-color: rgba(30,30,30, 0.3);
 }
-#temperature span {
+.card-content{
+  height: 85vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr 2fr 3fr 1fr 2fr;
+  color: #eee;
+}
+#city, .logo, .cast, #description, .minmax-row{
+  grid-column: span 5;
+  text-align: center;
+  text-shadow: 1px 1px 2px #000;
+}
+.logo{
+  padding: 3% 0;
+
+}
+.logo svg{
+  transform: scale(0.8);
+  max-height: 15vh;
+}
+.logo h2{
+  font-weight: 600;
+}
+#city{
+  font-size: 8vh;
+}
+.cast{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1.2);
+  font-size: 8vh;
+}
+#temperature:hover{
   cursor: pointer;
 }
-#min, #max {
-  border: 2px solid #aaa;
-  border-radius: 5px;
-  padding: 5px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-shadow: 1px 1px 2px #333;
-}
 #description{
-  margin: -1rem 0 2rem 0;
+  font-size: 6vh;
 }
-.btn-floating {
-  left: -2rem;
-  top: 5rem;
+.minmax-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10vw;
+  margin: 1% 10% 5%;
 }
-
-.cast {
+.btn{
+  font-size: 5vh;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  border-radius: 30px;
+  //max-height: 10vh;
+  padding: 2% 0;
+  text-align: center;
+  border: 2px solid #ccc;
 }
-.card {
-  height: 100%;
-  width: 100%;
-  background: url('https://images.pexels.com/photos/186980/pexels-photo-186980.jpeg?w=940&h=650&auto=compress&cs=tinysrgb');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+.min-btn{
+  background-color: rgba(30, 30, 180, 0.8);
 }
-.card-content {
-  height: 100%;
-  background-color: rgba(0,0,0,0.6);
+.max-btn{
+  background-color: rgba(180, 30, 30, 0.8);
 }
-@media screen and (min-width: 750px) {
-  .container{
-    height: 98vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .btn-floating {
-
-    bottom: -2rem;
-  }
+footer{
+  grid-column: 2;
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer span{
+  font-size: 1.3rem;
+  color: #ccc;
+}
+.red{
+  color: red;
+}
+@media (orientation: landscape){
   .logo svg{
-    width: 100px;
-    height: auto;
-  }
-  .logo h5 {
-    font-size: 2.4rem;
-  }
-  .logo p {
-    font-size: 0.6rem;
-  }
-}
-@media screen and (max-height: 400px){
-  #description {
-    display: none;
-  }
-}
-@media screen and (max-height: 300px){
-  .btn-floating, #min, #max {
-    display: none;
-  }
-}
-@media screen and (max-height: 200px){
-   .logo {
-    display: none;
-  }
-  .card-content {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center; 
+    transform: scale(1.4);
   }
   #city{
-    margin: 0;
+    font-size: 8vw;
+  }
+}
+@media (max-height:500px){
+  .logo{
+    font-size: 2vh;
+
+  }
+  #city{
+    font-size: 10vh;
+  }
+}
+@media (max-height:350px){
+
+  .cast{
+    grid-column: 4;
+    grid-row: 2 / 4;
+    font-size: 12vh;
+  }
+  #city{
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+    font-size: 12vh;
+  }
+  .minmax-row{
+    margin: 2% 10%;
   }
 }
