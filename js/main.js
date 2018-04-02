@@ -1,6 +1,4 @@
 /* jshint browser: true */
-/* geolocation is available */
-/* Put the DOM Elements in variables */
 (function () {
     'use strict';
     const tempMap = {
@@ -13,14 +11,11 @@
     const min = document.getElementById('min');
     const max = document.getElementById('max');
     const description = document.getElementById('description');
-    const icon = document.getElementById('icon');
-    //const pressure = document.getElementById('pressure');
-    //const humidity = document.getElementById('humidity');
-    //const wSpeed = document.getElementById('test4');
+    const icon = document.getElementById('icon');    
     temperature.addEventListener('click', toggleTemp);
-    geoFindMe();
-    //Get Latitude and Longitude
-    function geoFindMe() {
+    
+    //Get Latitude and Longitude with GeoLocation
+    (function () {
         if (!navigator.geolocation) {
             city.innerHTML = "<p>Geolocation is not supported by your browser</p>";
 
@@ -37,7 +32,7 @@
             city.innerHTML = "Unable to retrieve your location";
         }
         navigator.geolocation.getCurrentPosition(success, error);
-    }
+    })();
 
 
     function getData(end) {
@@ -64,11 +59,8 @@
         description.innerHTML = data.weather[0].description;
         icon.src = data.weather[0].icon;
 
-        //pressure.innerHTML = data.main.pressure + 'hPa';
-        //humidity.innerHTML = data.main.humidity + '%';
-        //wSpeed.innerHTML = data.wind.speed + 'm/s';
     }
-    /* Function to convert celsius <-> farenheit */
+    /* Toggle convert celsius <-> farenheit */
     function toggleTemp(e) {
         if (e.target.innerHTML.indexOf('C') !== -1) {
             const tempF = (tempMap.main * 1.8 + 32).toFixed(1);
