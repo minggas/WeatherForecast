@@ -1,12 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Amatic+SC|Anton");
 /*Reseting*/
-
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 *,
 *:before,
 *:after {
@@ -14,39 +12,40 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit;
 }
-
 * {
   margin: 0;
   padding: 0;
   font-family: "Amatic SC", cursive;
 }
-
 body {
   width: 100vw;
   height: 100vh;
 }
-
 .flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .container {
-  background: url("https://drive.google.com/uc?export=view&id=1Y-ijEM-_tt9mfzBLn2wZVvwIY2l-3h9k") center center no-repeat;
+  background: url("https://drive.google.com/uc?export=view&id=1Y-ijEM-_tt9mfzBLn2wZVvwIY2l-3h9k")
+    center center no-repeat;
   background-size: cover;
   width: 100%;
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 7fr 1fr;
   grid-template-rows: 1fr 7fr 1fr;
-  grid-template-areas: ". . ." ". card ." ". . .";
+  grid-template-areas:
+    ". . ."
+    ". card ."
+    ". . .";
 }
-
 .card {
   grid-area: card;
   border-radius: 30px;
-  background: linear-gradient(rgba(74, 64, 40, 0.3), rgba(44, 34, 10, 0.8)), url("https://drive.google.com/uc?export=view&id=1Y-ijEM-_tt9mfzBLn2wZVvwIY2l-3h9k") center center no-repeat;
+  background: linear-gradient(rgba(74, 64, 40, 0.5), rgba(44, 34, 10, 0.8)),
+    url("https://drive.google.com/uc?export=view&id=1Y-ijEM-_tt9mfzBLn2wZVvwIY2l-3h9k")
+      center center no-repeat;
   background-size: cover;
   box-shadow: 5px 5px 30px -2px rgba(10, 10, 10, 0.7);
 }
@@ -58,42 +57,36 @@ body {
   grid-template-rows: 0.2fr 2fr 1.3fr 0.8fr 0.8fr;
   color: #eee;
 }
-
 #city,
 .cast,
 #description,
 .minmax-row {
   grid-column: span 5;
   text-align: center;
-  text-shadow: 1px 1px 2px rgba(10, 10, 10, 0.5);
+  text-shadow: 1px 1px 2px rgba(10,10,10,0.5);
 }
-
 .logo {
   flex-direction: column;
   padding: 3% 0;
   grid-column: 2/5;
 }
-
 .logo svg {
   max-height: 15vh;
 }
-
 .logo h2 {
   line-height: 10px;
   font-weight: 600;
 }
-
 .logo p {
   font-size: 0.7rem;
   margin-top: 4px;
 }
-
 #city {
   font-size: 12vw;
   font-weight: 600;
   line-height: 150%;
+  
 }
-
 .cast {
   grid-column: span 5;
   font-size: 8vh;
@@ -109,22 +102,18 @@ body {
   font-family: "Anton", sans-serif;
   margin-left: 5px;
 }
-
 #temperature:hover {
   cursor: pointer;
 }
-
 #description {
   font-size: 8vw;
 }
-
 .minmax-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10vw;
   margin: 1% 10% 5%;
 }
-
 .btn {
   font-size: 4vw;
   border-radius: 30px;
@@ -133,26 +122,21 @@ body {
   text-align: center;
   border: 2px solid #ccc;
 }
-
 .min-btn {
   background-color: rgba(30, 30, 180, 0.8);
 }
-
 .max-btn {
   background-color: rgba(180, 30, 30, 0.8);
 }
-
 footer {
   grid-column: 2;
   grid-row: 3;
 }
-
 footer span {
   background: rgba(44, 34, 10, 0.5);
   font-size: 1.3rem;
   color: #ccc;
 }
-
 .red {
   color: red;
   text-shadow: -1px 0 #ccc, 0 1px #ccc, 1px 0 #ccc, 0 -1px #ccc;
@@ -166,32 +150,26 @@ footer span {
   .btn {
     font-size: 4vh;
   }
+
   #description {
     font-size: 7vh;
   }
 }
 
-@media (max-height: 500px) {
-  .logo {
-    font-size: 2vh;
+@media (max-height: 500px){
+ 
+  .card-content {
+    grid-template-rows: 0.1fr 1.3fr 0.8fr 0.8fr; 
   }
   #city {
-    font-size: 10vh;
+    grid-column: 1/3;
+  }
+  .cast {
+    grid-column: 3/6;
   }
 }
-
-@media (max-height: 350px) {
-  .cast {
-    grid-column: 4;
-    grid-row: 2 / 4;
-    font-size: 12vh;
-  }
-  #city {
-    grid-column: 1 / 3;
-    grid-row: 2 / 4;
-    font-size: 12vh;
-  }
+@media (max-height: 300px){
   .minmax-row {
-    margin: 2% 10%;
+    display: none;
   }
 }
