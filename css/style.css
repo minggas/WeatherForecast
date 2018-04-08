@@ -1,23 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Amatic+SC|Anton");
-/*Reseting*/
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
-}
 * {
   margin: 0;
   padding: 0;
   font-family: "Amatic SC", cursive;
 }
-body {
+html, body {
   width: 100vw;
   height: 100vh;
 }
@@ -30,7 +17,7 @@ body {
   background: url("https://drive.google.com/uc?export=view&id=1Y-ijEM-_tt9mfzBLn2wZVvwIY2l-3h9k")
     center center no-repeat;
   background-size: cover;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 7fr 1fr;
@@ -38,9 +25,15 @@ body {
   grid-template-areas:
     ". . ."
     ". card ."
-    ". . .";
+    ". footer .";
 }
 .card {
+  padding: 10px;
+  max-height: 85vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1.2fr 2fr 1.3fr 0.8fr 0.8fr;
+  color: #eee;
   grid-area: card;
   border-radius: 30px;
   background: linear-gradient(rgba(74, 64, 40, 0.5), rgba(44, 34, 10, 0.8)),
@@ -50,13 +43,6 @@ body {
   box-shadow: 5px 5px 30px -2px rgba(10, 10, 10, 0.7);
 }
 
-.card-content {
-  height: 85vh;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 0.2fr 2fr 1.3fr 0.8fr 0.8fr;
-  color: #eee;
-}
 #city,
 .cast,
 #description,
@@ -66,20 +52,21 @@ body {
   text-shadow: 1px 1px 2px rgba(10,10,10,0.5);
 }
 .logo {
-  flex-direction: column;
-  padding: 3% 0;
+  flex-direction: column;  
   grid-column: 2/5;
 }
 .logo svg {
-  max-height: 15vh;
+  height: 11vw;
+  width: auto;
 }
 .logo h2 {
+  font-size: 4vw;
   line-height: 10px;
   font-weight: 600;
 }
 .logo p {
-  font-size: 0.7rem;
-  margin-top: 4px;
+  font-size: 1.8vw;
+  margin-top: 1vw;
 }
 #city {
   font-size: 12vw;
@@ -112,12 +99,12 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10vw;
-  margin: 1% 10% 5%;
+  
 }
 .btn {
   font-size: 4vw;
   border-radius: 30px;
-  max-height: 10vh;
+ 
   padding: 2% 0;
   text-align: center;
   border: 2px solid #ccc;
@@ -129,10 +116,12 @@ body {
   background-color: rgba(180, 30, 30, 0.8);
 }
 footer {
-  grid-column: 2;
-  grid-row: 3;
+  grid-area: footer;
+  
 }
-footer span {
+footer .foot-text {
+  padding: 1px 2px;
+  border-radius: 5px;
   background: rgba(44, 34, 10, 0.5);
   font-size: 1.3rem;
   color: #ccc;
@@ -157,8 +146,12 @@ footer span {
 }
 
 @media (max-height: 500px){
+  .logo svg {
+    width: auto;
+    height: 15vh;
+  }
  
-  .card-content {
+  .card {
     grid-template-rows: 0.1fr 1.3fr 0.8fr 0.8fr; 
   }
   #city {
@@ -169,6 +162,19 @@ footer span {
   }
 }
 @media (max-height: 300px){
+  footer .foot-text {
+    display: none;
+  }
+  .logo svg {
+    width: auto;
+    height: 25vh;
+  }
+  .logo h2 {
+    font-size: 10vh;
+  }
+  .logo p {
+    font-size: 5vh;
+  }
   .minmax-row {
     display: none;
   }
