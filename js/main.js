@@ -1,4 +1,4 @@
-/* jshint browser: true */
+/* jshint browser: true, esversion: 6 */
 (function () {
 	'use strict';
 	const tempMap = {
