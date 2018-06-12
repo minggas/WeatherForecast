@@ -14,7 +14,7 @@ html, body {
   justify-content: center;
 }
 .container {
-  background: url("/bg.jpg")
+  background: url("/WeatherForecast/bg.jpg")
     center center no-repeat;
   background-size: cover;
   width: 100vw;
@@ -37,7 +37,7 @@ html, body {
   grid-area: card;
   border-radius: 30px;
   background: linear-gradient(rgba(74, 64, 40, 0.5), rgba(44, 34, 10, 0.8)),
-    url("/bg.jpg")
+    url("/WeatherForecast/bg.jpg")
       center center no-repeat;
   background-size: cover;
   box-shadow: 5px 5px 30px -2px rgba(10, 10, 10, 0.7);
