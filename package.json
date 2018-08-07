@@ -2,10 +2,13 @@
   "name": "project",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel js -d lib"
+    "build": "npm run babel && npm run minifycss && npm run minifyjs",
+    "minifycss": "postcss css/style.css > dist/css/style.css",
+    "babel": "babel js/main.js --out-file js/main.babel.js",
+    "minifyjs": "uglifyjs --compress --mangle -- js/main.babel.js -o dist/js/main.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +16,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "cssnano": "^3.10.0",
-    "eslint": "^4.19.1"
+    "postcss-cli": "^6.0.0"
   }
+
 }

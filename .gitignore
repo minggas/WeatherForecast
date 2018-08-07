@@ -1,4 +1,4 @@
-lib/*
-node_modules/*
-Spinner-1s-200px.svg
 
+node_modules/*
+.vscode/*
+js/main.babel.js
