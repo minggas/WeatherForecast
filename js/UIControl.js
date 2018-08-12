@@ -16,24 +16,24 @@ const DOMstr = {
 };
 
 const iconsPath = {
-  "01d": "../assets/icons/sun.svg",
-  "01n": "../assets/icons/moon.svg",
-  "02d": "../assets/icons/f-cloud-d.svg",
-  "02n": "../assets/icons/f-cloud-n.svg",
-  "03d": "../assets/icons/s-cloud.svg",
-  "03n": "../assets/icons/s-cloud.svg",
-  "04d": "../assets/icons/b-cloud.svg",
-  "04n": "../assets/icons/b-cloud.svg",
-  "09d": "../assets/icons/s-rain.svg",
-  "09n": "../assets/icons/s-rain.svg",
-  "10d": "../assets/icons/rain-d.svg",
-  "10n": "../assets/icons/rain-n.svg",
-  "11d": "../assets/icons/storm.svg",
-  "11n": "../assets/icons/storm.svg",
-  "13d": "../assets/icons/snow.svg",
-  "13n": "../assets/icons/snow.svg",
-  "50d": "../assets/icons/mist.svg",
-  "50n": "../assets/icons/mist.svg"
+  "01d": "assets/icons/sun.svg",
+  "01n": "assets/icons/moon.svg",
+  "02d": "assets/icons/f-cloud-d.svg",
+  "02n": "assets/icons/f-cloud-n.svg",
+  "03d": "assets/icons/s-cloud.svg",
+  "03n": "assets/icons/s-cloud.svg",
+  "04d": "assets/icons/b-cloud.svg",
+  "04n": "assets/icons/b-cloud.svg",
+  "09d": "assets/icons/s-rain.svg",
+  "09n": "assets/icons/s-rain.svg",
+  "10d": "assets/icons/rain-d.svg",
+  "10n": "assets/icons/rain-n.svg",
+  "11d": "assets/icons/storm.svg",
+  "11n": "assets/icons/storm.svg",
+  "13d": "assets/icons/snow.svg",
+  "13n": "assets/icons/snow.svg",
+  "50d": "assets/icons/mist.svg",
+  "50n": "assets/icons/mist.svg"
 };
 
 class UIController {
