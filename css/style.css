@@ -1,181 +1,168 @@
-@import url("https://fonts.googleapis.com/css?family=Amatic+SC|Anton");
-* {
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Amatic SC", cursive;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-html, body {
-  width: 100vw;
-  height: 100vh;
-}
+
 .flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .container {
-  background: url("/WeatherForecast/bg.jpg")
-    center center no-repeat;
+  background: url("../assets/bg.jpg") center no-repeat;
   background-size: cover;
   width: 100vw;
   height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 7fr 1fr;
-  grid-template-rows: 1fr 7fr 1fr;
-  grid-template-areas:
-    ". . ."
-    ". card ."
-    ". footer .";
+  padding: 1.5rem 2rem;
+  overflow-y: hidden;
 }
+
+.logo {
+  width: 15vw;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
 .card {
-  padding: 2%;
-  max-height: 85vh;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 1.2fr 2fr 1.3fr 0.8fr 0.8fr;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  max-width: 700px;
+  height: calc(100% - 1rem);
   color: #eee;
-  grid-area: card;
   border-radius: 30px;
   background: linear-gradient(rgba(74, 64, 40, 0.5), rgba(44, 34, 10, 0.8)),
-    url("/WeatherForecast/bg.jpg")
-      center center no-repeat;
+    url("../assets/bg.jpg") center center no-repeat;
   background-size: cover;
-  box-shadow: 5px 5px 30px -2px rgba(10, 10, 10, 0.7);
+  box-shadow: 0px 0px 10px rgba(10, 10, 10, 0.7);
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-#city,
-.cast,
-#description,
-.minmax-row {
-  grid-column: span 5;
+.toggle-temp {
+  position: absolute;
+  top: 10%;
+  left: 78%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle-temp span {
+  margin: 5px;
+  color: white;
+  transition: 0.5s ease-out;
+  font-size: 1.2rem;
+}
+
+.toggle-temp span.active {
+  color: hsla(100, 71%, 57%, 0.493);
+}
+
+.city {
+  font-size: calc(0.5rem + 4vw);
+}
+.temp-wrap {
   text-align: center;
-  text-shadow: 1px 1px 2px rgba(10,10,10,0.5);
-}
-.logo {
-  flex-direction: column;  
-  grid-column: 2/5;
-}
-.logo svg {
-  height: 11vw;
-  width: auto;
-}
-.logo h2 {
-  font-size: 4vw;
-  line-height: 10px;
-  font-weight: 600;
-}
-.logo p {
-  font-size: 1.8vw;
-  margin-top: 1vw;
-}
-#city {
-  font-size: 12vw;
-  font-weight: 600;
-  line-height: 150%;
-  
-}
-.cast {
-  grid-column: span 5;
-  font-size: 8vh;
+  padding: 5px;
+  position: relative;
 }
 
-#temperature {
-  font-size: 12vw;
+.temp-wrap > * {
+  margin: 5px;
 }
 
-#temperature,
-#min,
-#max {
-  font-family: "Anton", sans-serif;
-  margin-left: 5px;
+.temperature {
+  font-size: calc(4rem + 4vw);
 }
-#temperature:hover {
-  cursor: pointer;
+
+.description {
+  font-size: calc(1rem + 2vw);
 }
-#description {
-  font-size: 8vw;
+
+.icon {
+  filter: invert(95%);
+  width: 20%;
 }
-.minmax-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10vw;
-  
+.details > div {
+  display: flex;
+  padding: 5px;
+  align-items: center;
+}
+.wind > * {
+  margin: 5px;
 }
 .btn {
-  font-size: 4vw;
+  font-size: 1rem;
   border-radius: 30px;
- 
-  padding: 2% 0;
+  padding: 0.3rem 1.5rem 0;
   text-align: center;
   border: 2px solid #ccc;
+  margin: 1rem;
 }
+
 .min-btn {
   background-color: rgba(30, 30, 180, 0.8);
 }
+
 .max-btn {
   background-color: rgba(180, 30, 30, 0.8);
 }
-footer {
-  grid-area: footer;
-  
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "hum pre wind" "vis rise set";
 }
+.humidity {
+  grid-area: hum;
+}
+
+.pressure {
+  grid-area: pre;
+}
+
+.wind {
+  grid-area: wind;
+}
+
+.visibility {
+  grid-area: vis;
+}
+
+.sunrise {
+  grid-area: rise;
+}
+
+.sunset {
+  grid-area: set;
+}
+
 footer .foot-text {
   padding: 1px 2px;
   border-radius: 5px;
-  background: rgba(44, 34, 10, 0.5);
+  background-color: rgba(74, 64, 40, 0.5);
   font-size: 1.3rem;
   color: #ccc;
 }
+
+.foot-text a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.foot-text a:hover {
+  cursor: pointer;
+  color: hsl(200, 40%, 30%);
+  font-weight: bold;
+}
+
 .red {
   color: red;
   text-shadow: -1px 0 #ccc, 0 1px #ccc, 1px 0 #ccc, 0 -1px #ccc;
-}
-
-@media (orientation: landscape) {
-  #city,
-  #temperature {
-    font-size: 12vh;
-  }
-  .btn {
-    font-size: 4vh;
-  }
-
-  #description {
-    font-size: 7vh;
-  }
-}
-
-@media (max-height: 500px){
-  .logo svg {
-    width: auto;
-    height: 15vh;
-  }
- 
-  .card {
-    grid-template-rows: 0.1fr 1.3fr 0.8fr 0.8fr; 
-  }
-  #city {
-    grid-column: 1/3;
-  }
-  .cast {
-    grid-column: 3/6;
-  }
-}
-@media (max-height: 300px){
-  footer .foot-text {
-    display: none;
-  }
-  .logo svg {
-    width: auto;
-    height: 25vh;
-  }
-  .logo h2 {
-    font-size: 10vh;
-  }
-  .logo p {
-    font-size: 5vh;
-  }
-  .minmax-row {
-    display: none;
-  }
 }
