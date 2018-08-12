@@ -25,8 +25,7 @@ const UIController = {
     document.querySelector(DOMstr.min).innerHTML = `MIN: ${min} ${type}&deg;`;
     document.querySelector(DOMstr.max).innerHTML = `MAX: ${max} ${type}&deg;`;
     document.querySelector(DOMstr.description).innerHTML = desc;
-    document.querySelector(DOMstr.icon).src = icon;
-  },
+    document.querySelector(DOMstr.icon).src = iconsPath[icon];
 
   //Show error messages
   errorMsg: function(msg) {
