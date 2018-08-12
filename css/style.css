@@ -30,8 +30,7 @@
 
 .card {
   margin: 0 auto;
-  position: relative;
-  padding: 2%;
+  padding: 1rem 2rem;
   max-width: 700px;
   height: calc(100% - 1rem);
   color: #eee;
@@ -41,47 +40,64 @@
   background-size: cover;
   box-shadow: 0px 0px 10px rgba(10, 10, 10, 0.7);
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .toggle-temp {
   position: absolute;
   top: 10%;
-  left: 73%;
+  left: 78%;
   width: 20%;
+  display: flex;
+  flex-direction: column;
 }
 
-.toggle-temp button {
-  width: 54%;
-  padding: 0.2rem 0.5rem;
-  border-radius: 10px 0 0 10px;
-  outline: none;
+.toggle-temp span {
+  margin: 5px;
+  color: white;
   transition: 0.5s ease-out;
+  font-size: 1.2rem;
 }
 
-.toggle-temp button.right-btn {
-  border-radius: 0px 10px 10px 0px;
-}
-
-.toggle-temp button.active {
-  border: inset;
-  background-color: hsla(100, 71%, 57%, 0.493);
+.toggle-temp span.active {
+  color: hsla(100, 71%, 57%, 0.493);
 }
 
 .city {
   font-size: calc(0.5rem + 4vw);
 }
+.temp-wrap {
+  text-align: center;
+  padding: 5px;
+  position: relative;
+}
+
+.temp-wrap > * {
+  margin: 5px;
+}
 
 .temperature {
-  font-size: calc(4.5rem + 4vw);
+  font-size: calc(4rem + 4vw);
 }
 
 .description {
-  font-size: calc(1rem + 3vw);
+  font-size: calc(1rem + 2vw);
 }
 
+.icon {
+  filter: invert(95%);
+  width: 20%;
+}
+.details > div {
+  display: flex;
+  padding: 5px;
+  align-items: center;
+}
+.wind > * {
+  margin: 5px;
+}
 .btn {
-  font-size: calc(0.5rem + 2vw);
+  font-size: 1rem;
   border-radius: 30px;
   padding: 0.3rem 1.5rem 0;
   text-align: center;
@@ -95,6 +111,36 @@
 
 .max-btn {
   background-color: rgba(180, 30, 30, 0.8);
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "hum pre wind" "vis rise set";
+}
+.humidity {
+  grid-area: hum;
+}
+
+.pressure {
+  grid-area: pre;
+}
+
+.wind {
+  grid-area: wind;
+}
+
+.visibility {
+  grid-area: vis;
+}
+
+.sunrise {
+  grid-area: rise;
+}
+
+.sunset {
+  grid-area: set;
 }
 
 footer .foot-text {

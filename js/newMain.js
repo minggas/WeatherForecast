@@ -1,6 +1,7 @@
-import UI from "./UIControl.js";
-import logical from "./Logical.js";
-
+import UIControl from "./UIControl.js";
+import WeatherControl from "./WeatherControl.js";
+const UI = new UIControl();
+const WeatherCtrl = new WeatherControl();
 const setupEventListeners = function() {
   const DOM = UI.getDOMStr();
   //add listener to the temparature toggle button
@@ -9,7 +10,7 @@ const setupEventListeners = function() {
 
 const toggleTemp = function(e) {
   UI.toggleBtn(e.currentTarget);
-  logical.toggleTemp();
+  WeatherCtrl.toggleTemp();
   updateData();
 };
 
@@ -25,7 +26,7 @@ const getData = function() {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     //Fetch
-    const data = await logical.fetchData(lat, lon);
+    const data = await WeatherCtrl.fetchData(lat, lon);
     //Display in the UI
     UI.showData(data);
   }
@@ -37,7 +38,7 @@ const getData = function() {
 };
 //Updade the UI
 const updateData = function() {
-  const data = logical.getData();
+  const data = WeatherCtrl.getData();
   UI.showData(data);
 };
 const controller = {
