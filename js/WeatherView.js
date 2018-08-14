@@ -37,8 +37,11 @@ const iconsPath = {
 };
 
 class UIController {
+  constructor(element) {
+    this.element = element;
+  }
   //Put data on the DOM
-  showData(dataObj) {
+  render(dataObj) {
     let {
       city,
       temp: { actual, min, max, type },
@@ -52,37 +55,40 @@ class UIController {
       sunset
     } = dataObj;
     type = type === "cel" ? "C" : "F";
-    document.querySelector(DOMstr.city).innerHTML = city;
-    document.querySelector(DOMstr.temperature).innerHTML = `${actual}`;
-    document.querySelector(DOMstr.min).innerHTML = `MIN: ${min} ${type}&deg;`;
-    document.querySelector(DOMstr.max).innerHTML = `MAX: ${max} ${type}&deg;`;
-    document.querySelector(DOMstr.description).innerHTML = desc;
-    document.querySelector(DOMstr.icon).src = iconsPath[icon];
-    document.querySelector(
-      DOMstr.humidity
-    ).innerHTML = `Humidity: ${humidity}%`;
-    document.querySelector(
-      DOMstr.pressure
-    ).innerHTML = `Pressure: ${pressure}hPa`;
-    document.querySelector(
-      DOMstr.visibility
-    ).innerHTML = `Visibility: ${visibility}m`;
-    document
-      .querySelector(DOMstr.direction)
-      .setAttribute("style", `transform: rotate(${deg}deg); width: 10%;`);
-    document.querySelector(DOMstr.speed).innerHTML = `${speed}m/s`;
-    document.querySelector(DOMstr.sunrise).innerHTML = `Sunrise: ${new Date(
-      sunrise * 1000
-    )
-      .toString()
-      .match(/\d{2}:\d{2}:\d{2}/)
-      .join("")}`;
-    document.querySelector(DOMstr.sunset).innerHTML = `Sunset: ${new Date(
-      sunset * 1000
-    )
-      .toString()
-      .match(/\d{2}:\d{2}:\d{2}/)
-      .join("")}`;
+
+    this.element.innerHTML = `<span class="city">${city}</span>
+    <div class="temp-wrap">
+        <img class="icon" class="responsive-img" src=${iconsPath[icon]}
+            alt="Weather icon">
+        <span class="temperature">${actual}</span>
+        <div class="toggle-temp">
+            <span class="left-btn active">C &deg;</span>
+            <span class="right-btn">F &deg;</span>
+        </div>
+    </div>
+    <div class="minmax-row flex-center">
+        <span class="btn min-btn">MIN: ${min} ${type}&deg;</span>
+        <span class="btn max-btn">MAX: ${max} ${type}&deg;</span>
+    </div>
+    <div class="description">${desc}</div>
+    <div class="details">
+        <div class="humidity">Humidity: ${humidity}%</div>
+        <div class="pressure">Pressure: ${pressure}hPa</div>
+        <div class="visibility">Visibility: ${visibility || "N/A"}</div>
+        <div class="wind">
+            <span>Wind: </span>
+            <img src="assets/icons/arrows.svg" class="direction" style = "transform: rotate(${deg}deg); width: 10%;" />
+            <div class="speed">${speed}m/s</div>
+        </div>
+        <div class="sunrise">Sunrise: ${new Date(sunrise * 1000)
+          .toString()
+          .match(/\d{2}:\d{2}:\d{2}/)
+          .join("")}</div>
+        <div class="sunset">Sunset: ${new Date(sunset * 1000)
+          .toString()
+          .match(/\d{2}:\d{2}:\d{2}/)
+          .join("")}</div>
+    </div>`;
   }
 
   //Show error messages
@@ -90,8 +96,8 @@ class UIController {
     document.querySelector(DOMstr.city).innerHTML = msg;
   }
 
-  getDOMStr() {
-    return DOMstr;
+  loading() {
+    this.element.innerHTML = `<div class="spinner" />`;
   }
 
   toggleBtn(el) {

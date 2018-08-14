@@ -36,46 +36,17 @@
 
 <body>
     <div id="content" class="container">
-        <div class="card flex-center">
-
-            <span class="city">Loading...</span>
-            <div class="temp-wrap">
-                <img class="icon" class="responsive-img" src="https://drive.google.com/uc?export=view&id=1B7b1MTvlbEwCBzJ_bu_KQ4Q7qkdqXAuy"
-                    alt="Weather icon">
-                <span class="temperature"></span>
-                <div class="toggle-temp">
-                    <span class="left-btn active">C &deg;</span>
-                    <span class="right-btn">F &deg;</span>
-                </div>
-            </div>
-            <div class="minmax-row flex-center">
-                <span class="btn min-btn">
-                </span>
-                <span class="btn max-btn"></span>
-            </div>
-            <div class="description">Please wait</div>
-            <div class="details">
-                <div class="humidity"></div>
-                <div class="pressure"></div>
-                <div class="visibility"></div>
-                <div class="wind">
-                    <span>Wind: </span>
-                    <img src="assets/icons/arrows.svg" class="direction" />
-                    <div class="speed"></div>
-                </div>
-                <div class="sunrise"></div>
-                <div class="sunset"></div>
-            </div>
+        <div id="weather-card" class="card flex-center">
         </div>
         <footer class="flex-center">
             <span class="foot-text">Made with
-                <span class="red">&hearts;</span> by
+                <span class="heart">&hearts;</span> by
                 <a href="https://minggas.website" target="_blank">Minggas</a>
             </span>
         </footer>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="module" src="js/newMain.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>
