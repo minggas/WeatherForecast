@@ -22,12 +22,6 @@
   overflow-y: hidden;
 }
 
-.logo {
-  width: 15vw;
-  height: auto;
-  margin-bottom: 1rem;
-}
-
 .card {
   margin: 0 auto;
   padding: 1rem 2rem;
@@ -35,8 +29,7 @@
   height: calc(100% - 1rem);
   color: #eee;
   border-radius: 30px;
-  background: linear-gradient(rgba(74, 64, 40, 0.5), rgba(44, 34, 10, 0.8)),
-    url("../assets/bg.jpg") center center no-repeat;
+  background: linear-gradient(rgba(74, 64, 40, 0.5), rgba(44, 34, 10, 0.8)), url("../assets/bg.jpg") center center no-repeat;
   background-size: cover;
   box-shadow: 0px 0px 10px rgba(10, 10, 10, 0.7);
   flex-direction: column;
@@ -66,13 +59,14 @@
 .city {
   font-size: calc(0.5rem + 4vw);
 }
+
 .temp-wrap {
   text-align: center;
   padding: 5px;
   position: relative;
 }
 
-.temp-wrap > * {
+.temp-wrap>* {
   margin: 5px;
 }
 
@@ -88,14 +82,17 @@
   filter: invert(95%);
   width: 20%;
 }
-.details > div {
+
+.details>div {
   display: flex;
   padding: 5px;
   align-items: center;
 }
-.wind > * {
+
+.wind>* {
   margin: 5px;
 }
+
 .btn {
   font-size: 1rem;
   border-radius: 30px;
@@ -119,6 +116,7 @@
   grid-template-rows: repeat(2, 1fr);
   grid-template-areas: "hum pre wind" "vis rise set";
 }
+
 .humidity {
   grid-area: hum;
 }
@@ -143,6 +141,25 @@
   grid-area: set;
 }
 
+.spinner {
+  content: "";
+  display: block;
+  margin: auto;
+  border-top: 2px solid hsl(10, 100%, 50%);
+  border-right: 2px solid transparent;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  animation: spinner 0.7s linear infinite;
+  z-index: 9999;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 footer .foot-text {
   padding: 1px 2px;
   border-radius: 5px;
@@ -162,7 +179,7 @@ footer .foot-text {
   font-weight: bold;
 }
 
-.red {
-  color: red;
+.heart {
+  color: hsl(0, 100%, 50%);
   text-shadow: -1px 0 #ccc, 0 1px #ccc, 1px 0 #ccc, 0 -1px #ccc;
 }
