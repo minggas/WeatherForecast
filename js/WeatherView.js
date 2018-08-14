@@ -80,14 +80,8 @@ class UIController {
             <img src="assets/icons/arrows.svg" class="direction" style = "transform: rotate(${deg}deg); width: 10%;" />
             <div class="speed">${speed}m/s</div>
         </div>
-        <div class="sunrise">Sunrise: ${new Date(sunrise * 1000)
-          .toString()
-          .match(/\d{2}:\d{2}:\d{2}/)
-          .join("")}</div>
-        <div class="sunset">Sunset: ${new Date(sunset * 1000)
-          .toString()
-          .match(/\d{2}:\d{2}:\d{2}/)
-          .join("")}</div>
+        <div class="sunrise">Sunrise: ${this.parseTime(sunrise)}</div>
+        <div class="sunset">Sunset: ${this.parseTime(sunset)}</div>
     </div>`;
   }
 
@@ -103,6 +97,13 @@ class UIController {
   toggleBtn(el) {
     el.firstElementChild.classList.toggle("active");
     el.lastElementChild.classList.toggle("active");
+  }
+
+  parseTime(unixTime) {
+    return new Date(unixTime * 1000)
+      .toString()
+      .match(/\d{2}:\d{2}:\d{2}/)
+      .join("");
   }
 }
 
