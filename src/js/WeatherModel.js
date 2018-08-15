@@ -5,8 +5,8 @@ function WeatherModel() {
       2
     )}&lon=${lon.toFixed(2)}`;
     const res = await axios.get(end);
-
     try {
+      res.data.main.tempF = calcFarenheit(res.data.main.temp);
       fn(res.data);
     } catch (error) {
       if (/TypeError:/.test(error)) {
@@ -20,11 +20,7 @@ function WeatherModel() {
     return Math.floor(temp * 1.8 + 32);
   }
 
-  //Convert Fahrenheit to Celcius
-  function calcCelcius(temp) {
-    return Math.floor(((temp - 32) * 5) / 9);
-  }
-  return Object.freeze({ fetchData, calcCelcius, calcFarenheit });
+  return Object.freeze({ fetchData });
 }
 
 export default WeatherModel;

@@ -1,7 +1,4 @@
 function Controller(WeatherView, WeatherModel) {
-  function toggleTemp(e) {
-    //TODO
-  }
   function getLocation() {
     WeatherView.loading();
     if (!navigator.geolocation) {
@@ -26,7 +23,7 @@ function Controller(WeatherView, WeatherModel) {
     const {
       name: city,
       visibility,
-      main: { temp, humidity, pressure },
+      main: { temp, tempF, humidity, pressure },
       weather: [{ description: desc, icon }],
       sys: { sunrise, sunset },
       wind: { speed, deg }
@@ -34,6 +31,7 @@ function Controller(WeatherView, WeatherModel) {
     const WeatherViewModel = {
       city: city,
       temp: Math.floor(temp),
+      tempF: Math.floor(tempF),
       desc: desc,
       icon: icon.substr(icon.search(/\.png/) - 3, 3),
       humidity: humidity,

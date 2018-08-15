@@ -79,7 +79,12 @@
 }
 
 .temperature {
+  display: none;
   font-size: calc(4rem + 4vw);
+}
+
+.temperature.active {
+  display: inline;
 }
 
 .description {

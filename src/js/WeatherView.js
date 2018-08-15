@@ -42,6 +42,7 @@ function WeatherView(element) {
     let {
       city,
       temp,
+      tempF,
       desc,
       icon,
       humidity,
@@ -56,7 +57,8 @@ function WeatherView(element) {
     <div class="temp-wrap">
         <img class="icon" class="responsive-img" src=${iconsPath[icon]}
             alt="Weather icon">
-        <span class="temperature">${temp}</span>
+        <span class="temperature active">${temp}</span>
+        <span class="temperature">${tempF}</span>
         <div class="toggle-temp">
             <span class="left-btn active">C &deg;</span>
             <span class="right-btn">F &deg;</span>
@@ -82,6 +84,8 @@ function WeatherView(element) {
           sunset
         )}</div>
     </div>`;
+    const btn = element.querySelector(".toggle-temp");
+    btn.addEventListener("click", toggleBtn);
   }
 
   //Show error messages
@@ -95,8 +99,11 @@ function WeatherView(element) {
   }
 
   function toggleBtn(el) {
-    el.firstElementChild.classList.toggle("active");
-    el.lastElementChild.classList.toggle("active");
+    el.currentTarget.firstElementChild.classList.toggle("active");
+    el.currentTarget.lastElementChild.classList.toggle("active");
+    element.querySelectorAll(".temperature").forEach(element => {
+      element.classList.toggle("active");
+    });
   }
 
   function parseTime(unixTime) {
