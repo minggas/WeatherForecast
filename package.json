@@ -1,22 +1,22 @@
 {
-  "name": "project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "weather-now",
+  "version": "2.0.0",
+  "description": "A weather forecast that uses a external API (https://fcc-weather-api.glitch.me/api/) to retrive the data",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run babel && npm run minifycss && npm run minifyjs",
-    "minifycss": "postcss css/style.css > dist/css/style.css",
-    "babel": "babel js/main.js --out-file js/main.babel.js",
-    "minifyjs": "uglifyjs --compress --mangle -- js/main.babel.js -o dist/js/main.js"
+    "build": "webpack"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Minggas",
+  "license": "MIT",
+  "homepage": "http://minggas.github.io/WeatherForecast",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "cssnano": "^3.10.0",
-    "postcss-cli": "^6.0.0"
-  }
-
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "gh-pages": "^1.2.0",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {}
 }

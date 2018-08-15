@@ -1,16 +1,11 @@
-class Controller {
-  constructor(WeatherView, WeatherModel) {
-    this.WeatherView = WeatherView;
-    this.WeatherModel = WeatherModel;
-  }
-  toggleTemp(e) {
+function Controller(WeatherView, WeatherModel) {
+  function toggleTemp(e) {
     //TODO
   }
-  getLocation() {
-    const self = this;
-    this.WeatherView.loading();
+  function getLocation() {
+    WeatherView.loading();
     if (!navigator.geolocation) {
-      self.WeatherView.errorMsg("Geolocation is not supported by your browser");
+      WeatherView.errorMsg("Geolocation is not supported by your browser");
       return;
     }
 
@@ -19,30 +14,26 @@ class Controller {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
       //Fetch
-      self.WeatherModel.fetchData(lat, lon, self.showData.bind(self));
+      WeatherModel.fetchData(lat, lon, showData);
     }
     //Display error in the UI
     function error() {
-      self.WeatherView.errorMsg("Unable to retrieve your location");
+      WeatherView.errorMsg("Unable to retrieve your location");
     }
     navigator.geolocation.getCurrentPosition(success, error);
   }
-  showData(WeatherModelData) {
+  function showData(WeatherModelData) {
     const {
       name: city,
       visibility,
-      main: { temp: actual, temp_min: min, temp_max: max, humidity, pressure },
+      main: { temp, humidity, pressure },
       weather: [{ description: desc, icon }],
       sys: { sunrise, sunset },
       wind: { speed, deg }
     } = WeatherModelData;
     const WeatherViewModel = {
       city: city,
-      temp: {
-        actual: Math.floor(actual),
-        min: Math.floor(min),
-        max: Math.floor(max)
-      },
+      temp: Math.floor(temp),
       desc: desc,
       icon: icon.substr(icon.search(/\.png/) - 3, 3),
       humidity: humidity,
@@ -53,8 +44,9 @@ class Controller {
       sunset: sunset
     };
 
-    this.WeatherView.render(WeatherViewModel);
+    WeatherView.render(WeatherViewModel);
   }
+  return Object.freeze({ getLocation });
 }
 
 export default Controller;
