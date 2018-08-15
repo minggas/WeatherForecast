@@ -1,24 +1,4 @@
-function Controller(WeatherView, WeatherModel) {
-  function getLocation() {
-    WeatherView.loading();
-    if (!navigator.geolocation) {
-      WeatherView.errorMsg("Geolocation is not supported by your browser");
-      return;
-    }
-
-    //Fetch data and display in the UI
-    function success(position) {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
-      //Fetch
-      WeatherModel.fetchData(lat, lon, showData);
-    }
-    //Display error in the UI
-    function error() {
-      WeatherView.errorMsg("Unable to retrieve your location");
-    }
-    navigator.geolocation.getCurrentPosition(success, error);
-  }
+const Controller = (WeatherView, WeatherModel) => {
   function showData(WeatherModelData) {
     const {
       name: city,
@@ -44,7 +24,28 @@ function Controller(WeatherView, WeatherModel) {
 
     WeatherView.render(WeatherViewModel);
   }
-  return Object.freeze({ getLocation });
-}
+  return {
+    getLocation: () => {
+      WeatherView.loading();
+      if (!navigator.geolocation) {
+        WeatherView.errorMsg("Geolocation is not supported by your browser");
+        return;
+      }
+
+      //Fetch data and display in the UI
+      function success(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        //Fetch
+        WeatherModel.fetchData(lat, lon, showData);
+      }
+      //Display error in the UI
+      function error() {
+        WeatherView.errorMsg("Unable to retrieve your location");
+      }
+      navigator.geolocation.getCurrentPosition(success, error);
+    }
+  };
+};
 
 export default Controller;
