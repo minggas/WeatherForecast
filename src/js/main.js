@@ -1,7 +1,7 @@
 import WeatherView from "./WeatherView.js";
 import WeatherModel from "./WeatherModel.js";
 import WeatherController from "./WeatherControl.js";
-//import "../css/style.css";
+import "../css/style.css";
 
 const targetElement = document.getElementById("weather-card");
 
