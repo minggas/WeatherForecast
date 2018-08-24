@@ -14,7 +14,7 @@
 }
 
 .container {
-  background: url("../assets/bg.jpg") center no-repeat;
+  background: linear-gradient(rgba(74, 64, 40, 0.2), rgba(44, 34, 10, 0.2)), url("../assets/bg.jpg") center no-repeat;
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -41,7 +41,7 @@
 }
 
 .card>* {
-  margin: 1.5rem 0;
+  margin: 1vh 0;
 }
 
 .toggle-temp {
@@ -51,6 +51,7 @@
   width: 20%;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .toggle-temp span {
@@ -79,12 +80,8 @@
 }
 
 .temperature {
-  display: none;
+  transition: 0.5s ease-out;
   font-size: calc(4rem + 4vw);
-}
-
-.temperature.active {
-  display: inline;
 }
 
 .description {
@@ -160,26 +157,14 @@
   }
 }
 
-footer .foot-text {
-  padding: 1px 2px;
-  border-radius: 5px;
-  background-color: rgba(74, 64, 40, 0.5);
-  font-size: 1.3rem;
-  color: #ccc;
+.footer-icons {
+  text-align: center;
 }
 
-.foot-text a {
-  color: inherit;
-  text-decoration: none;
+.footer-icons svg path {
+  transition: all 0.5s ease-out;
 }
 
-.foot-text a:hover {
-  cursor: pointer;
-  color: hsl(200, 40%, 30%);
-  font-weight: bold;
-}
-
-.heart {
-  color: hsl(0, 100%, 50%);
-  text-shadow: -1px 0 #ccc, 0 1px #ccc, 1px 0 #ccc, 0 -1px #ccc;
+.footer-icons svg:hover path {
+  fill: #3abdff;
 }

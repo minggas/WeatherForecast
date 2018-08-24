@@ -1,12 +1,12 @@
-import WeatherView from "./WeatherView.js";
-import WeatherModel from "./WeatherModel.js";
-import WeatherController from "./WeatherControl.js";
+import WeatherView from "./components/View/WeatherView.js";
+import WeatherModel from "./components/Model/WeatherModel.js";
+import WeatherController from "./components/Control/WeatherControl.js";
 import "../css/style.css";
 
 const targetElement = document.getElementById("weather-card");
 
-const Model = WeatherModel();
-const View = WeatherView(targetElement);
+const Model = new WeatherModel();
+const View = new WeatherView(targetElement);
 
-const controller = WeatherController(View, Model);
-controller.getLocation();
+const controller = new WeatherController(View, Model);
+controller.init();
