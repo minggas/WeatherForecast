@@ -1,0 +1,180 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: linear-gradient(rgba(74, 64, 40, 0.2), rgba(44, 34, 10, 0.2)), url(824c0042d2148f3516ac631bee30a6fe.jpg) center no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.card {
+  margin: 1rem;
+  padding: 1rem 2rem;
+  max-width: 700px;
+  max-height: calc(100% - 1rem);
+  color: #eee;
+  border-radius: 30px;
+  background: linear-gradient(rgba(74, 64, 40, 0.5), rgba(44, 34, 10, 0.8)), url(824c0042d2148f3516ac631bee30a6fe.jpg) center center no-repeat;
+  background-size: cover;
+  box-shadow: 0px 0px 10px rgba(10, 10, 10, 0.7);
+  flex-direction: column;
+}
+
+.card-loading {
+  background: transparent;
+  box-shadow: none;
+}
+
+.card>* {
+  margin: 1vh 0;
+}
+
+.toggle-temp {
+  position: absolute;
+  top: 10%;
+  left: 78%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.toggle-temp span {
+  margin: 5px;
+  color: white;
+  transition: 0.5s ease-out;
+  font-size: 1.2rem;
+}
+
+.toggle-temp span.active {
+  color: hsla(100, 71%, 57%, 0.493);
+}
+
+.city {
+  font-size: calc(1.5rem + 2vw);
+}
+
+.temp-wrap {
+  text-align: center;
+  padding: 5px;
+  position: relative;
+}
+
+.temp-wrap>* {
+  margin: 5px;
+}
+
+.temperature {
+  transition: 0.5s ease-out;
+  font-size: calc(4rem + 4vw);
+}
+
+.description {
+  font-size: calc(1rem + 2vw);
+}
+
+.icon {
+  -webkit-filter: invert(95%);
+          filter: invert(95%);
+  width: 20%;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "hum pre wind" "vis rise set";
+}
+
+.details>div {
+  flex-direction: column;
+  margin: 10px;
+}
+
+.details>div>span {
+  margin-bottom: 5px;
+}
+
+.humidity {
+  grid-area: hum;
+}
+
+.pressure {
+  grid-area: pre;
+}
+
+.wind {
+  grid-area: wind;
+}
+
+.wind .direction {
+  margin-right: 5px;
+  width: 30%;
+}
+
+.visibility {
+  grid-area: vis;
+}
+
+.sunrise {
+  grid-area: rise;
+}
+
+.sunset {
+  grid-area: set;
+}
+
+.spinner {
+  content: "";
+  display: block;
+  margin: auto;
+  border-top: 2px solid hsl(10, 100%, 50%);
+  border-right: 2px solid transparent;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  -webkit-animation: spinner 0.7s linear infinite;
+          animation: spinner 0.7s linear infinite;
+  z-index: 9999;
+}
+
+@-webkit-keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.footer-icons {
+  text-align: center;
+}
+
+.footer-icons svg path {
+  transition: all 0.5s ease-out;
+}
+
+.footer-icons svg:hover path {
+  fill: #3abdff;
+}
