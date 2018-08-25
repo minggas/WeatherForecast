@@ -17,17 +17,16 @@ class Controller {
   }
 
   init() {
-    const self = this;
-    self.WeatherView.loading();
+    this.WeatherView.loading();
     getLocation()
       .then(res => {
         const { latitude: lat, longitude: lon } = res.coords;
-        self.WeatherModel.fetchData(lat, lon).then(res =>
-          self.WeatherView.render(res)
+        this.WeatherModel.fetchData(lat, lon).then(res =>
+          this.WeatherView.render(res)
         );
       })
-      .catch(err => self.WeatherView.errorMsg(err));
-    self.WeatherView.toggleBtn = self.toggleBtn;
+      .catch(err => this.WeatherView.errorMsg(err));
+    this.WeatherView.toggleBtn = this.toggleBtn;
   }
 }
 
