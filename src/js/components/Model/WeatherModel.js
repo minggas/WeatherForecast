@@ -1,11 +1,11 @@
+import axios from "axios";
+
 class WeatherModel {
   //Fetch the API data
   async fetchData(lat, lon) {
     const end = `https://minggas-api.glitch.me/weather?lat=${lat.toFixed(
       2
     )}&lon=${lon.toFixed(2)}`;
-    //console.log(end);
-    const local = "./weather.json";
     try {
       const res = await axios.get(end);
       let {

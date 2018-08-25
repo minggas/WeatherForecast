@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -13,12 +14,26 @@
   "license": "MIT",
   "homepage": "http://minggas.github.io/WeatherForecast",
   "devDependencies": {
+    "autoprefixer": "^9.1.3",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2017": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
     "file-loader": "^1.1.11",
     "gh-pages": "^1.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "image-webpack-loader": "^4.3.1",
+    "mini-css-extract-plugin": "^0.4.2",
+    "postcss-loader": "^3.0.0",
     "style-loader": "^0.22.1",
+    "url-loader": "^1.1.1",
     "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.1.0",
+    "webpack-md5-hash": "0.0.6"
   },
-  "dependencies": {}
+  "dependencies": {
+    "postcss-clean": "^1.1.0"
+  }
 }
