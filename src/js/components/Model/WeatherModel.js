@@ -1,5 +1,3 @@
-import axios from "axios";
-
 class WeatherModel {
   //Fetch the API data
   async fetchData(lat, lon) {
@@ -7,7 +5,9 @@ class WeatherModel {
       2
     )}&lon=${lon.toFixed(2)}`;
     try {
-      const res = await axios.get(end);
+      const res = await fetch(end);
+      const data = await res.json();
+
       let {
         name: city,
         visibility,
@@ -15,10 +15,10 @@ class WeatherModel {
         weather: [{ description: desc, icon }],
         sys: { sunrise, sunset },
         wind: { speed, deg }
-      } = res.data;
+      } = data;
       temp = Math.round(temp);
       icon = icon.substr(icon.search(/\.png/) - 3, 3);
-      console.log(res.data);
+
       return {
         city,
         visibility,
