@@ -1,3 +1,5 @@
+const convert = require("../../helpers/tempConverter");
+
 class Controller {
   constructor(WeatherView, WeatherModel) {
     this.WeatherView = WeatherView;
@@ -9,9 +11,9 @@ class Controller {
     el.currentTarget.firstElementChild.classList.toggle("active");
     el.currentTarget.lastElementChild.classList.toggle("active");
     if (temp.classList.contains("celcius")) {
-      temp.innerHTML = calcFarenheit(temp.innerHTML);
+      temp.innerHTML = convert.calcFarenheit(temp.innerHTML);
     } else {
-      temp.innerHTML = calcCelcius(temp.innerHTML);
+      temp.innerHTML = convert.calcCelcius(temp.innerHTML);
     }
     temp.classList.toggle("celcius");
   }
@@ -40,13 +42,4 @@ function getLocation() {
   return new Promise((res, rej) => {
     navigator.geolocation.getCurrentPosition(res, rej);
   });
-}
-
-//Convert Celcius to Fahrenheit
-function calcFarenheit(temp) {
-  return Math.round(temp * 1.8 + 32);
-}
-
-function calcCelcius(temp) {
-  return Math.round((temp - 32) * 0.5556);
 }
