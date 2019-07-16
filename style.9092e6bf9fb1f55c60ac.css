@@ -14,7 +14,7 @@
 }
 
 .container {
-  background: linear-gradient(rgba(74, 64, 40, 0.2), rgba(44, 34, 10, 0.2)), url(90743910e533c86b93ae6c430e7a620b.jpg) center no-repeat;
+  background: linear-gradient(rgba(74, 64, 40, 0.2), rgba(44, 34, 10, 0.2));
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -29,7 +29,7 @@
   max-height: calc(100% - 1rem);
   color: #eee;
   border-radius: 30px;
-  background: linear-gradient(rgba(74, 64, 40, 0.5), rgba(44, 34, 10, 0.8)), url(90743910e533c86b93ae6c430e7a620b.jpg) center center no-repeat;
+  background: linear-gradient(rgba(74, 64, 40, 0.85), rgba(44, 34, 10, 0.98));
   background-size: cover;
   box-shadow: 0px 0px 10px rgba(10, 10, 10, 0.7);
   flex-direction: column;
@@ -59,7 +59,7 @@
   color: white;
   transition: 0.5s ease-out;
   font-size: 1.2rem;
-  opacity: 0.4
+  opacity: 0.2;
 }
 
 .toggle-temp span.active {
@@ -166,14 +166,23 @@
   }
 }
 
+footer {
+  color: hsl(0, 0%, 10%);
+}
+
 .footer-icons {
+  min-width: 200px;
+  margin-top: 5px;
   text-align: center;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .footer-icons svg path {
   transition: all 0.5s ease-out;
+  fill: hsl(0, 0%, 10%);
 }
 
 .footer-icons svg:hover path {
-  fill: #3abdff;
+  fill: #003f5f;
 }
