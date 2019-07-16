@@ -59,10 +59,11 @@
   color: white;
   transition: 0.5s ease-out;
   font-size: 1.2rem;
+  opacity: 0.4
 }
 
 .toggle-temp span.active {
-  color: hsla(100, 71%, 57%, 0.493);
+  opacity: 1;
 }
 
 .city {
